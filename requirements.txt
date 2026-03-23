@@ -1,0 +1,15 @@
+# API framework
+fastapi>=0.111.0
+uvicorn[standard]>=0.29.0
+python-multipart>=0.0.9
+python-dotenv>=1.0.0
+
+# Google Vertex AI (Gemini 2.5 Pro/Flash + fine-tuned endpoints)
+google-cloud-aiplatform>=1.50.0
+
+# HuggingFace (Inference API + Dedicated Endpoints — no local GPU needed)
+huggingface_hub>=0.22.0
+
+# Evaluation metrics (all run on CPU)
+rouge-score>=0.1.2
+bert-score>=0.3.13
