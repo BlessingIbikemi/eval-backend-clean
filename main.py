@@ -7,6 +7,18 @@ Run with:
 API docs:
     http://localhost:8000/docs
 """
+import os
+import json
+
+# ── Google credentials for cloud deployment (Render, Railway etc.) ─────────
+# Locally, gcloud auth handles this automatically.
+# On cloud servers, we read from environment variable instead.
+creds_json = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS_JSON")
+if creds_json:
+    creds_path = "/tmp/google_credentials.json"
+    with open(creds_path, "w") as f:
+        f.write(creds_json)
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = creds_path
 
 from dotenv import load_dotenv
 load_dotenv()  # loads .env file before anything else
