@@ -61,12 +61,14 @@ MODELS = [
 
     # Base Gemma 3 4B — Vertex AI (no deployment needed, just use the model name)
     {
-        "id": "publishers/google/models/gemma3",
+       "id": "google/gemma-3-4b-it",
         "label": "Gemma 3 4B Instruct",
-        "source": "google",
+        "source": "huggingface",
         "type": "base",
         "modality": "text",
+        "requires_token": True,
         "description": "Google Gemma 3 4B instruction tuned",
+        "endpoint_url": "https://ep54n793kczrnm3i.us-east-1.aws.endpoints.huggingface.cloud",
     },
 
     # Your fine-tuned Gemma 3 — HuggingFace Endpoint
