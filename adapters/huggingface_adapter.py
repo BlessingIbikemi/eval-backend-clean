@@ -29,7 +29,7 @@ class HuggingFaceAdapter(BaseTextAdapter):
         # If model has a dedicated endpoint URL, use that
         endpoint_url = kwargs.get("endpoint_url")
         if endpoint_url:
-            return self._call_dedicated_endpoint(endpoint_url, prompt, system_prompt, **kwargs)
+            return self._call_dedicated_endpoint(prompt, system_prompt, **kwargs)
 
         # Otherwise use HF Serverless Inference API
         return self._call_inference_api(model_id, prompt, system_prompt, **kwargs)
@@ -84,12 +84,13 @@ class HuggingFaceAdapter(BaseTextAdapter):
                     f"Check: (1) model exists on HF Hub, (2) HF_TOKEN is set if model is gated/private"
                 )
 
-    def _call_dedicated_endpoint(self, endpoint_url: str, prompt: str, system_prompt: str, **kwargs) -> str:
+    def _call_dedicated_endpoint(self, prompt: str, system_prompt: str, **kwargs) -> str:
         """
         HuggingFace Dedicated Inference Endpoints.
         Use this for your fine-tuned models deployed as paid HF endpoints.
         endpoint_url looks like: https://your-endpoint-name.us-east-1.aws.endpoints.huggingface.cloud
         """
+        endpoint_url = kwargs.get("endpoint_url")
         try:
             from huggingface_hub import InferenceClient
         except ImportError:
