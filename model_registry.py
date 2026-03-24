@@ -38,24 +38,24 @@ MODELS = [
     # Step 2: Copy the endpoint ID (looks like: 1234567890123456789)
     # Step 3: Uncomment and fill in below
     {
-        "id": "YOUR_VERTEX_ENDPOINT_ID",          # just the number ID
+        "id": "4363812666817380352",          # just the number ID
         "label": "Fine-tuned Gemini 2.5 Flash",
          "source": "google",
          "type": "finetuned",
          "modality": "text",
          "description": "Fine-tuned on our domain data",
-         "vertex_project": "your-gcp-project-id",  # override project if different
+         "vertex_project": "yorubanlp",  # override project if different
          "vertex_location": "us-central1",
     },
 
     {
-        "id": "YOUR_VERTEX_ENDPOINT_ID",          # just the number ID
+        "id": "7467918709982494720",          # just the number ID
         "label": "Fine-tuned Gemini 2.5 Pro",
          "source": "google",
          "type": "finetuned",
          "modality": "text",
          "description": "Fine-tuned on our domain data",
-         "vertex_project": "your-gcp-project-id",  # override project if different
+         "vertex_project": "yorubanlp",  # override project if different
          "vertex_location": "us-central1",
     },
 
