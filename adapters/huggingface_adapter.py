@@ -90,7 +90,7 @@ class HuggingFaceAdapter(BaseTextAdapter):
         Use this for your fine-tuned models deployed as paid HF endpoints.
         endpoint_url looks like: https://your-endpoint-name.us-east-1.aws.endpoints.huggingface.cloud
         """
-       endpoint_url = kwargs.get("endpoint_url")
+        endpoint_url = kwargs.get("endpoint_url")
         try:
             from huggingface_hub import InferenceClient
         except ImportError:
