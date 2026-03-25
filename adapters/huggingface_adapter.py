@@ -60,7 +60,7 @@ class HuggingFaceAdapter(BaseTextAdapter):
         try:
             response = client.chat_completion(
                 messages=messages,
-                max_tokens=kwargs.get("max_tokens", 512),
+                max_tokens=kwargs.get("max_tokens", 2048),
                 temperature=kwargs.get("temperature", 0.2),
             )
             return response.choices[0].message.content
@@ -71,7 +71,7 @@ class HuggingFaceAdapter(BaseTextAdapter):
                 full_prompt = f"{system_prompt}\n\n{prompt}" if system_prompt else prompt
                 response = client.text_generation(
                     full_prompt,
-                    max_new_tokens=kwargs.get("max_tokens", 512),
+                    max_new_tokens=kwargs.get("max_tokens", 2048),
                     temperature=kwargs.get("temperature", 0.2),
                     return_full_text=False,
                 )
@@ -109,7 +109,7 @@ class HuggingFaceAdapter(BaseTextAdapter):
         try:
             response = client.chat_completion(
                 messages=messages,
-                max_tokens=kwargs.get("max_tokens", 512),
+                max_tokens=kwargs.get("max_tokens", 2048),
                 temperature=kwargs.get("temperature", 0.2),
             )
             return response.choices[0].message.content
@@ -118,7 +118,7 @@ class HuggingFaceAdapter(BaseTextAdapter):
             full_prompt = f"{system_prompt}\n\n{prompt}" if system_prompt else prompt
             response = client.text_generation(
                 full_prompt,
-                max_new_tokens=kwargs.get("max_tokens", 512),
+                max_new_tokens=kwargs.get("max_tokens", 2048),
                 temperature=kwargs.get("temperature", 0.2),
                 return_full_text=False,
             )

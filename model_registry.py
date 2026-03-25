@@ -43,7 +43,7 @@ MODELS = [
          "source": "google",
          "type": "finetuned",
          "modality": "text",
-         "description": "Fine-tuned on our domain data",
+         "description": "Fine-tuned on yoruba data",
          "vertex_project": "yorubanlp",  # override project if different
          "vertex_location": "us-central1",
     },
@@ -54,59 +54,11 @@ MODELS = [
          "source": "google",
          "type": "finetuned",
          "modality": "text",
-         "description": "Fine-tuned on our domain data",
+         "description": "Fine-tuned on Yoruba data",
          "vertex_project": "yorubanlp",  # override project if different
          "vertex_location": "us-central1",
     },
 
-    # Base Gemma 3 4B — Vertex AI (no deployment needed, just use the model name)
-    {
-       "id": "google/gemma-3-4b-it",
-        "label": "Gemma 3 4B Instruct",
-        "source": "huggingface",
-        "type": "base",
-        "modality": "text",
-        "requires_token": True,
-        "description": "Google Gemma 3 4B instruction tuned",
-        "endpoint_url": "https://ep54n793kczrnm3i.us-east-1.aws.endpoints.huggingface.cloud",
-    },
-
-    # Your fine-tuned Gemma 3 — HuggingFace Endpoint
-    {
-        "id": "your-org/your-finetuned-gemma3",
-        "label": "Fine-tuned Gemma 3 4b",
-        "source": "huggingface",
-        "type": "finetuned",
-        "modality": "text",
-        "requires_token": True,
-        "endpoint_url": "https://your-endpoint.huggingface.cloud",  # paste your URL here
-        "description": "Fine-tuned Gemma 3 on our dataset",
-    },
-
-
-    # ──────────────────────────────────────────────────────────────────────
-    # HUGGINGFACE MODELS (run on HF Inference API — no GPU on your side)
-    # Requires HF_TOKEN in your .env for private/gated models like Llama
-    # ──────────────────────────────────────────────────────────────────────
-
-    {
-        "id": "",
-        "label": "N-Atlas",
-        "source": "huggingface",
-        "type": "base",
-        "modality": "text",
-        "requires_token": True,          # needs HF_TOKEN (gated model)
-        "description": "Awarri N-Atlas Text model — needs HF token approval",
-    },
-    {
-        "id": "",
-        "label": "Fine-tuned N-Atlas",
-        "source": "huggingface",
-        "type": "finetuned",
-        "modality": "text",
-        "requires_token": False,
-        "description": "Finetuned N-Atlas Text model",
-    },
     #{
     #    "id": "google/flan-t5-large",
     #   "label": "Flan-T5 Large",

@@ -22,10 +22,10 @@ router = APIRouter(prefix="/evaluate", tags=["Evaluate"])
 class SingleRequest(BaseModel):
     model_id:      str   = Field(..., description="Model ID from the registry")
     prompt:        str   = Field(..., description="Input prompt")
-    reference:     str   = Field(..., description="Ground truth / expected output")
+    reference:     str | None     = Field(default=None, description="Ground truth / expected output (optional)")
     system_prompt: str   = Field(default="")
-    temperature:   float = Field(default=0.2, ge=0.0, le=2.0)
-    max_tokens:    int   = Field(default=512,  ge=1,   le=4096)
+    temperature: float = Field(default=0.2, ge=0.0, le=2.0)
+    max_tokens: int = Field(default=2048, ge=1, le=8192)
 
 class BatchItem(BaseModel):
     prompt:    str
@@ -74,7 +74,7 @@ def _run_inference(model: dict, prompt: str, system_prompt: str, temperature: fl
 def evaluate_single(req: SingleRequest):
     model      = _resolve_model(req.model_id)
     prediction = _run_inference(model, req.prompt, req.system_prompt, req.temperature, req.max_tokens)
-    metrics    = evaluate_text(prediction, req.reference)
+    metrics    = evaluate_text(prediction, req.reference) if req.reference else None
 
     return {
         "model_id":     req.model_id,
