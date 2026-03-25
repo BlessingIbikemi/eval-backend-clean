@@ -61,7 +61,7 @@ MODELS = [
 
     # Base Gemma 3 4B — Vertex AI (no deployment needed, just use the model name)
     {
-        "id": "google/gemma-3-4b-it",
+       "id": "google/gemma-3-4b-it",
         "label": "Gemma 3 4B Instruct",
         "source": "huggingface",
         "type": "base",
@@ -73,7 +73,7 @@ MODELS = [
 
     # Your fine-tuned Gemma 3 — HuggingFace Endpoint
     {
-        "id": "Ibikemi/gemma-3-4b-african-finetuned",
+        "id": "your-org/your-finetuned-gemma3",
         "label": "Fine-tuned Gemma 3 4b",
         "source": "huggingface",
         "type": "finetuned",
@@ -90,7 +90,7 @@ MODELS = [
     # ──────────────────────────────────────────────────────────────────────
 
     {
-        "id": "NCAIR1/N-ATLaS",
+        "id": "",
         "label": "N-Atlas",
         "source": "huggingface",
         "type": "base",
