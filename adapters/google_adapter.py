@@ -97,6 +97,6 @@ class GoogleAdapter(BaseTextAdapter):
             max_output_tokens=kwargs.get("max_tokens", 1024),
         )
 
-        response = model.generate_content(prompt, generation_config=config)
+        response = model.generate_content(prompt)
         print("I have gotten my response")
         return response.text
