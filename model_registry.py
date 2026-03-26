@@ -59,6 +59,37 @@ MODELS = [
          "vertex_location": "us-central1",
     },
 
+    # Base Gemma 3 4B — Vertex AI (no deployment needed, just use the model name)
+    #{
+     #  "id": "google/gemma-3-4b-it",
+      #  "label": "Gemma 3 4B Instruct",
+       # "source": "huggingface",
+        #"type": "base",
+        #"modality": "text",
+       # "requires_token": True,
+       # "description": "Google Gemma 3 4B instruction tuned",
+        #"task": "qa",
+       # "endpoint_url": "https://lyr4drs938l7co1o.us-east-1.aws.endpoints.huggingface.cloud",
+    #},
+
+    # Your fine-tuned Gemma 3 — HuggingFace Endpoint
+    #{
+      #  "id": "your-org/your-finetuned-gemma3",
+       # "label": "Fine-tuned Gemma 3 4b",
+       # "source": "huggingface",
+       # "type": "finetuned",
+       # "modality": "text",
+       # "requires_token": True,
+       # "endpoint_url": "https://your-endpoint.huggingface.cloud",  # paste your URL here
+       # "description": "Fine-tuned Gemma 3 on our dataset",
+    #},
+
+
+    # ──────────────────────────────────────────────────────────────────────
+    # HUGGINGFACE MODELS (run on HF Inference API — no GPU on your side)
+    # Requires HF_TOKEN in your .env for private/gated models like Llama
+    # ──────────────────────────────────────────────────────────────────────
+
     #{
     #    "id": "google/flan-t5-large",
     #   "label": "Flan-T5 Large",

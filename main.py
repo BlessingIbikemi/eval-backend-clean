@@ -10,6 +10,7 @@ API docs:
 import os
 import json
 
+
 # ── Google credentials for cloud deployment (Render, Railway etc.) ─────────
 # Locally, gcloud auth handles this automatically.
 # On cloud servers, we read from environment variable instead.
@@ -27,6 +28,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routers.models_router import router as models_router
 from routers.evaluate_router import router as evaluate_router
+from routers.tts_router import router as tts_router
 
 app = FastAPI(
     title="Model Evaluation Platform",
@@ -42,6 +44,7 @@ app.add_middleware(
 
 app.include_router(models_router)
 app.include_router(evaluate_router)
+app.include_router(tts_router)
 
 @app.get("/")
 def root():
